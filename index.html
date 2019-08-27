@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     </header>
     <!--Main Body of Game-->
     <body>
         <div class="container">
             <!--Instructions box-->
             <div class="row">
-                <div class="col-lg-10">
-                    <h1>How to play!</h1>
+                <div class="col-lg-5">
+                    <h1>Crystal Collector</h1>
+                    <h3 id="play">How to play!</h3>
                     <ul>
                         <li>You will be given a random number at the start of the game.</li>
                         <li>There are four crystals below. By clicking them you will add a specific amount of points to your total score</li>
@@ -29,15 +32,15 @@
             </div>
             <!--Main game section-->
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <h2>Match this number!</h2>
                 </div>
                 <!--Random number box-->
                 <div class="col-sm-12"></div>
                 <div class="col-md-6">
-                    <h1 class="numbBox"></h1>
+                    <p class="numbBox"></p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2" id="scoreBox">
                     &nbsp;
                     <h3>Wins:</h3>
                     <h3>Losses:</h3>
@@ -49,18 +52,20 @@
                     &nbsp;
                 </div>
                 <div class="col-md-12">
-                   <button id="button-1" value="0"><img src="assets/images/crystal1.jpeg" class="img-responsive icons" id="icon1" width="200px" height="200px"></button>
-                   <button id="button-1" value="0"><img src="assets/images/crystal2.jpeg" class="img-responsive icons" id="icon1" width="200px" height="200px"></button>
-                   <button id="button-1" value="0"><img src="assets/images/crystal3.jpeg" class="img-responsive icons" id="icon1" height="200px" width="100px"></button>
-                   <button id="button-1" value="0"><img src="assets/images/crystal4.jpeg" class="img-responsive icons" id="icon1" height="200px" width="100px"></button>
+                   <button id="button1" value="0"><img src="assets/images/crystal1.jpeg" class="img-responsive icons" id="icon1" width="200px" height="200px"></button>
+                   <button id="button2" value="0"><img src="assets/images/crystal2.jpeg" class="img-responsive icons" id="icon1" width="200px" height="200px"></button>
+                   <button id="button3" value="0"><img src="assets/images/crystal3.jpeg" class="img-responsive icons" id="icon1" height="200px" width="100px"></button>
+                   <button id="button4" value="0"><img src="assets/images/crystal4.jpeg" class="img-responsive icons" id="icon1" height="200px" width="100px"></button>
                 </div>
             </div>
             <!--Guess Box-->
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-5">
                     <h3>Your total score:</h3>
                 </div>
-                <div class="col-md-10" id="total-number">0</div>
+            </div>    
+            <div class="row">
+                 <div class="col-md-4" id="totalNum">0</div>
             </div>
         </div>
     </body>

@@ -15,6 +15,7 @@ $(document).ready(function() {
         randomNum="";
         crystalNum="";
         crystalNumOption="";
+        $("#totalScore, #totalNumber").empty();
     }
     //random computer variable array
     var randomNum= [];

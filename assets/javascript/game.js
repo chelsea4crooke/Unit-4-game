@@ -10,7 +10,7 @@ $(document).ready(function() {
     var crystalNumOption= [1,2,3,4,5,6,7,8,9,10,11,12];
 
     //reset function  
-    function initalizeCrystals(){
+    function initializeCrystals(){
         totalScore="";
         randomNum="";
         crystalNum="";
@@ -87,17 +87,17 @@ $(document).ready(function() {
             wins++;
             console.log("You Win!!!")
             $("#wins").html("<h3>Wins: " + wins + "</h3>");
-            initalizeCrystals();
+            initializeCrystals();
     } else if(totalScore > randomNum) {
         alert("You lost!!!");
         console.log("You lost")
         losses++;
         $("#losses").html("<h3>Losses: " + losses + "</h3>");
-        initalizeCrystals();
+        initializeCrystals();
         }
     
     });
     $("#clearButton").on("click", function(){
-      initalizeCrystals();    
+      initializeCrystals();    
   });      
 });

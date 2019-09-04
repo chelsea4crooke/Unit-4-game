@@ -42,7 +42,7 @@ h2{
 .numbBox{
     border: 6px dashed royalblue;
     margin: 8px 3px 8px 3px;
-    height: 150px;
+    height: 170px;
     width: 435px;
     background: navy;
     color: aquamarine;
@@ -75,4 +75,10 @@ h3{
     background: navy;
     color: aquamarine;
     text-align: center;
+}
+#clearButton {
+    border: 4px solid navy;
+    width: 120px;
+    height: 100px;
+    padding: 5px;
 }

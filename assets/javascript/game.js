@@ -1,6 +1,21 @@
 $(document).ready(function() {
-    //number array
+  //Global variables
+    var randomNum; //number to match
+    var crystalNum= []; //for array of random crystal values
+    var totalScore= 0; //user score
+    var wins= 0;
+      $("#wins").html("<h3>Wins: " + wins + "</h3>");
+    var losses= 0;
+      $("#losses").html("<h3>Losses: " + losses + "</h3>");
+    var crystalNumOption= [1,2,3,4,5,6,7,8,9,10,11,12];
 
+    //reset function  
+    function initalizeCrystals(){
+        totalScore="";
+        randomNum="";
+        crystalNum="";
+        crystalNumOption="";
+    }
     //random computer variable array
     var randomNum= [];
     for(var i = 19; i < 121; i++){
@@ -13,23 +28,8 @@ $(document).ready(function() {
     }
     console.log(crystalNum);
     console.log(randomNum);
-
-     //Global variables
-    // Random variables selected by computer
-    var randomNum; //number to match
-    var crystalNum= []; //for array of random crystal values
-    var c1; //crystal image 1
-    var c2; // crystal image 2
-    var c3; //crystal image 3
-    var c4; //crystal image 4
-    var totalScore = 0; //user score
-    var wins= 0;
-    var losses= 0;
-    var crystalNumOption= [1,2,3,4,5,6,7,8,9,10,11,12];
-
-
-     //Function
-    // pick random number
+   
+    // pick random number    
     function pickRandomNumber(compArr){
         var x= compArr[Math.floor(Math.random() * compArr.length)];
         randomNum = x;
@@ -41,29 +41,12 @@ $(document).ready(function() {
             $("#button" + (m+1)).attr("value", n);
          }    
          console.log(crystalNum); 
+         
     };
         console.log("crystalNum: " + crystalNum);
+        pickRandomNumber(randomNum); //random number to match         
        
-        //function crystalValues(arr){
-            // change value of each crystal button according to array
-          //  for(var p = 0; p < 4; p++){
-                // $("#button" + (p+1)) .attr("value", crystalNumOption[p]);
-            // }
-        // }
-        // end of crystalValues function
-        
-        function gameReset(x){
-            crystalNum = []; //clears crystal number values
-            pickRandomNumber(randomNum);
-            crystalValues(crystalNum);
-            totalScore = 0;
-            $("#totalNumber").html(totalScore);
-            alert(x);
-        }// end gameReset function
-        //game settings at start
-        pickRandomNumber(randomNum); //random number to match        
         //crystal button functions
-        
     $("#button1").on("click", function(){
         buttonScore = $("#button1").attr("value");
         totalScore += parseInt(buttonScore);
@@ -94,27 +77,26 @@ $(document).ready(function() {
         console.log("totalScore " + totalScore);
         $("#totalScore").html(totalScore);
         console.log("buttonScore " + buttonScore);
-    
+     });
     
         //this happens if user wins
+    $("#button").on("click", function(){
         if(totalScore === randomNum){
             alert("You Win!!!")
             wins++;
-            console.log(totalScore);
-            $("#totalScore").html(totalScore);
-            $("#wins").text(wins);
-            restart();
-            // setTimeout(function(){
-                // gameReset("You Win!!")},200);
-        } else if(totalScore != randomNum) {
-            alert("You lost!!!");
-            alert("Refresh page to play again");
-            console.log("You lost")
-            losses++;
-            $("#losses").text(losses);
-            restart();
-   // setTimeout(function(){
-               // gameReset("Womp-Womp...You lose")}, 200);
+            console.log("You Win!!!")
+            $("#wins").html("<h3>Wins: " + wins + "</h3>");
+            initalizeCrystals();
+    } else if(totalScore > randomNum) {
+        alert("You lost!!!");
+        console.log("You lost")
+        losses++;
+        $("#losses").html("<h3>Losses: " + losses + "</h3>");
+        initalizeCrystals();
         }
+    
     });
+    $("#clearButton").on("click", function(){
+      initalizeCrystals();    
+  });      
 });
